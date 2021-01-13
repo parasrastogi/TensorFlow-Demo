@@ -1,0 +1,40 @@
+PODS:
+  - Alamofire (4.9.1)
+  - Bond (7.8.1):
+    - Differ (~> 1.4)
+    - ReactiveKit (~> 3.14)
+  - DeviceKit (4.2.1)
+  - Differ (1.4.5)
+  - ReactiveKit (3.17.4)
+  - SVProgressHUD (2.2.5)
+  - TagListView (1.4.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - Bond
+  - DeviceKit
+  - SVProgressHUD
+  - TagListView (~> 1.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Bond
+    - DeviceKit
+    - Differ
+    - ReactiveKit
+    - SVProgressHUD
+    - TagListView
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Bond: 87075c7f20f37ea3e73dc7057fce839787bf46eb
+  DeviceKit: cadb5ff25d45fe186778bf2d0fd2ea4750542189
+  Differ: 3b6bd78e2b20cc795d9a86f7641d087524e4273e
+  ReactiveKit: f9f9e079efa39312c597bf1508ef4810d111ce76
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
+
+PODFILE CHECKSUM: fbe136905d9daf455236c1e40369cd1a244aab81
+
+COCOAPODS: 1.10.0

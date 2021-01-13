@@ -1,0 +1,570 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C8413BCF25A437C200BE0566 /* ImageQualityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8413BCD25A437C200BE0566 /* ImageQualityViewController.swift */; };
+		C8413BD025A437C200BE0566 /* ImageQualityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8413BCE25A437C200BE0566 /* ImageQualityViewController.xib */; };
+		C8413BD325A4386F00BE0566 /* ImageQualityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8413BD225A4386F00BE0566 /* ImageQualityViewModel.swift */; };
+		C8413BD825A438B400BE0566 /* ObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8413BD625A438B400BE0566 /* ObjectDetectionViewController.swift */; };
+		C8413BD925A438B400BE0566 /* ObjectDetectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8413BD725A438B400BE0566 /* ObjectDetectionViewController.xib */; };
+		C8413BDC25A43B0500BE0566 /* AllResonse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8413BDB25A43B0500BE0566 /* AllResonse.swift */; };
+		C8413BF825A4842E00BE0566 /* ObjectDetectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8413BF725A4842E00BE0566 /* ObjectDetectionViewModel.swift */; };
+		C8413E1A25AC5A8500BE0566 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8413E1925AC5A8400BE0566 /* RectangleView.swift */; };
+		C8413E1E25AC5E9E00BE0566 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8413E1D25AC5E9E00BE0566 /* String.swift */; };
+		C868C8612593298E0019D07A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868C8602593298E0019D07A /* AppDelegate.swift */; };
+		C868C8632593298E0019D07A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868C8622593298E0019D07A /* SceneDelegate.swift */; };
+		C868C8652593298E0019D07A /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868C8642593298E0019D07A /* TabViewController.swift */; };
+		C868C8682593298E0019D07A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C868C8662593298E0019D07A /* Main.storyboard */; };
+		C868C86A259329900019D07A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C868C869259329900019D07A /* Assets.xcassets */; };
+		C868C86D259329900019D07A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C868C86B259329900019D07A /* LaunchScreen.storyboard */; };
+		C868C883259355180019D07A /* TabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868C881259355180019D07A /* TabBarCollectionViewCell.swift */; };
+		C868C884259355180019D07A /* TabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C868C882259355180019D07A /* TabBarCollectionViewCell.xib */; };
+		C868C88825935A5A0019D07A /* TabViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868C88725935A5A0019D07A /* TabViewViewModel.swift */; };
+		C868C8922599DDC80019D07A /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868C8912599DDC80019D07A /* StringConstants.swift */; };
+		C868C8972599DFA90019D07A /* UtilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868C8962599DFA90019D07A /* UtilityManager.swift */; };
+		C868C89A2599F97A0019D07A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868C8992599F97A0019D07A /* Configuration.swift */; };
+		C88C940F25A0993A002CAFC3 /* ClassificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88C940D25A0993A002CAFC3 /* ClassificationViewController.swift */; };
+		C88C941025A0993A002CAFC3 /* ClassificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C88C940E25A0993A002CAFC3 /* ClassificationViewController.xib */; };
+		C88C942B25A30B6A002CAFC3 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88C942A25A30B6A002CAFC3 /* UIImage.swift */; };
+		C8FC4B2625A3186B00EECCF0 /* ClassificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FC4B2525A3186B00EECCF0 /* ClassificationResponse.swift */; };
+		C8FC4B2925A31C5400EECCF0 /* DataCoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FC4B2825A31C5400EECCF0 /* DataCoader.swift */; };
+		C8FC4B2D25A32A9400EECCF0 /* ClassificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FC4B2C25A32A9400EECCF0 /* ClassificationViewModel.swift */; };
+		C8FC4B3125A32DC800EECCF0 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FC4B3025A32DC800EECCF0 /* UIViewController.swift */; };
+		E0081BB3DED4E64E21D19457 /* Pods_TenserFlow_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F93CE4D2429CEBD097C3816B /* Pods_TenserFlow_Demo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7A96C46A2CE8F0795107DEFD /* Pods-TenserFlow Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenserFlow Demo.debug.xcconfig"; path = "Target Support Files/Pods-TenserFlow Demo/Pods-TenserFlow Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		B40F5044CFCFC161FE48A52F /* Pods-TenserFlow Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenserFlow Demo.release.xcconfig"; path = "Target Support Files/Pods-TenserFlow Demo/Pods-TenserFlow Demo.release.xcconfig"; sourceTree = "<group>"; };
+		C8413BCD25A437C200BE0566 /* ImageQualityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQualityViewController.swift; sourceTree = "<group>"; };
+		C8413BCE25A437C200BE0566 /* ImageQualityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageQualityViewController.xib; sourceTree = "<group>"; };
+		C8413BD225A4386F00BE0566 /* ImageQualityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQualityViewModel.swift; sourceTree = "<group>"; };
+		C8413BD625A438B400BE0566 /* ObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionViewController.swift; sourceTree = "<group>"; };
+		C8413BD725A438B400BE0566 /* ObjectDetectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ObjectDetectionViewController.xib; sourceTree = "<group>"; };
+		C8413BDB25A43B0500BE0566 /* AllResonse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllResonse.swift; sourceTree = "<group>"; };
+		C8413BF725A4842E00BE0566 /* ObjectDetectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionViewModel.swift; sourceTree = "<group>"; };
+		C8413E1925AC5A8400BE0566 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
+		C8413E1D25AC5E9E00BE0566 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		C868C85D2593298E0019D07A /* TenserFlow Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TenserFlow Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C868C8602593298E0019D07A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C868C8622593298E0019D07A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C868C8642593298E0019D07A /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		C868C8672593298E0019D07A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C868C869259329900019D07A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C868C86C259329900019D07A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C868C86E259329900019D07A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C868C881259355180019D07A /* TabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCollectionViewCell.swift; sourceTree = "<group>"; };
+		C868C882259355180019D07A /* TabBarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarCollectionViewCell.xib; sourceTree = "<group>"; };
+		C868C88725935A5A0019D07A /* TabViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewViewModel.swift; sourceTree = "<group>"; };
+		C868C8912599DDC80019D07A /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		C868C8962599DFA90019D07A /* UtilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityManager.swift; sourceTree = "<group>"; };
+		C868C8992599F97A0019D07A /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		C88C940D25A0993A002CAFC3 /* ClassificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationViewController.swift; sourceTree = "<group>"; };
+		C88C940E25A0993A002CAFC3 /* ClassificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassificationViewController.xib; sourceTree = "<group>"; };
+		C88C942A25A30B6A002CAFC3 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		C8FC4B2525A3186B00EECCF0 /* ClassificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationResponse.swift; sourceTree = "<group>"; };
+		C8FC4B2825A31C5400EECCF0 /* DataCoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCoader.swift; sourceTree = "<group>"; };
+		C8FC4B2C25A32A9400EECCF0 /* ClassificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationViewModel.swift; sourceTree = "<group>"; };
+		C8FC4B3025A32DC800EECCF0 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		F93CE4D2429CEBD097C3816B /* Pods_TenserFlow_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TenserFlow_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C868C85A2593298E0019D07A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0081BB3DED4E64E21D19457 /* Pods_TenserFlow_Demo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1506567D2BDF9C89334B5BE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F93CE4D2429CEBD097C3816B /* Pods_TenserFlow_Demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4BACC61CC268302BF7A3899F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A96C46A2CE8F0795107DEFD /* Pods-TenserFlow Demo.debug.xcconfig */,
+				B40F5044CFCFC161FE48A52F /* Pods-TenserFlow Demo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C8413BCC25A437A900BE0566 /* ImageQuality */ = {
+			isa = PBXGroup;
+			children = (
+				C8413BCD25A437C200BE0566 /* ImageQualityViewController.swift */,
+				C8413BCE25A437C200BE0566 /* ImageQualityViewController.xib */,
+				C8413BD225A4386F00BE0566 /* ImageQualityViewModel.swift */,
+			);
+			path = ImageQuality;
+			sourceTree = "<group>";
+		};
+		C8413BD525A4389A00BE0566 /* ObjectDetection */ = {
+			isa = PBXGroup;
+			children = (
+				C8413BD625A438B400BE0566 /* ObjectDetectionViewController.swift */,
+				C8413BD725A438B400BE0566 /* ObjectDetectionViewController.xib */,
+				C8413BF725A4842E00BE0566 /* ObjectDetectionViewModel.swift */,
+			);
+			path = ObjectDetection;
+			sourceTree = "<group>";
+		};
+		C8413E1825AC5A6700BE0566 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				C8413E1925AC5A8400BE0566 /* RectangleView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		C868C8542593298E0019D07A = {
+			isa = PBXGroup;
+			children = (
+				C868C85F2593298E0019D07A /* TenserFlow Demo */,
+				C868C85E2593298E0019D07A /* Products */,
+				4BACC61CC268302BF7A3899F /* Pods */,
+				1506567D2BDF9C89334B5BE5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C868C85E2593298E0019D07A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C868C85D2593298E0019D07A /* TenserFlow Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C868C85F2593298E0019D07A /* TenserFlow Demo */ = {
+			isa = PBXGroup;
+			children = (
+				C8413E1825AC5A6700BE0566 /* CustomViews */,
+				C8413BD525A4389A00BE0566 /* ObjectDetection */,
+				C8413BCC25A437A900BE0566 /* ImageQuality */,
+				C8FC4B2B25A3286000EECCF0 /* Classification */,
+				C88C942925A30B55002CAFC3 /* Extensions */,
+				C868C8952599DF8D0019D07A /* Utilities */,
+				C868C8902599DDB00019D07A /* Constants */,
+				C868C87C259353CA0019D07A /* Cell */,
+				C868C8602593298E0019D07A /* AppDelegate.swift */,
+				C868C8622593298E0019D07A /* SceneDelegate.swift */,
+				C868C8642593298E0019D07A /* TabViewController.swift */,
+				C868C8662593298E0019D07A /* Main.storyboard */,
+				C868C869259329900019D07A /* Assets.xcassets */,
+				C868C86B259329900019D07A /* LaunchScreen.storyboard */,
+				C868C86E259329900019D07A /* Info.plist */,
+				C868C88725935A5A0019D07A /* TabViewViewModel.swift */,
+				C8413BDB25A43B0500BE0566 /* AllResonse.swift */,
+			);
+			path = "TenserFlow Demo";
+			sourceTree = "<group>";
+		};
+		C868C87C259353CA0019D07A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C868C881259355180019D07A /* TabBarCollectionViewCell.swift */,
+				C868C882259355180019D07A /* TabBarCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C868C8902599DDB00019D07A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C868C8912599DDC80019D07A /* StringConstants.swift */,
+				C868C8992599F97A0019D07A /* Configuration.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		C868C8952599DF8D0019D07A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C868C8962599DFA90019D07A /* UtilityManager.swift */,
+				C8FC4B2825A31C5400EECCF0 /* DataCoader.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C88C942925A30B55002CAFC3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C88C942A25A30B6A002CAFC3 /* UIImage.swift */,
+				C8FC4B3025A32DC800EECCF0 /* UIViewController.swift */,
+				C8413E1D25AC5E9E00BE0566 /* String.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C8FC4B2B25A3286000EECCF0 /* Classification */ = {
+			isa = PBXGroup;
+			children = (
+				C88C940D25A0993A002CAFC3 /* ClassificationViewController.swift */,
+				C88C940E25A0993A002CAFC3 /* ClassificationViewController.xib */,
+				C8FC4B2525A3186B00EECCF0 /* ClassificationResponse.swift */,
+				C8FC4B2C25A32A9400EECCF0 /* ClassificationViewModel.swift */,
+			);
+			path = Classification;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C868C85C2593298E0019D07A /* TenserFlow Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C868C871259329900019D07A /* Build configuration list for PBXNativeTarget "TenserFlow Demo" */;
+			buildPhases = (
+				7AF37EE73C9FA858B1D00B00 /* [CP] Check Pods Manifest.lock */,
+				C868C8592593298E0019D07A /* Sources */,
+				C868C85A2593298E0019D07A /* Frameworks */,
+				C868C85B2593298E0019D07A /* Resources */,
+				29F53A62262B211A5B2C6A81 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TenserFlow Demo";
+			productName = "TenserFlow Demo";
+			productReference = C868C85D2593298E0019D07A /* TenserFlow Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C868C8552593298E0019D07A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					C868C85C2593298E0019D07A = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = C868C8582593298E0019D07A /* Build configuration list for PBXProject "TenserFlow Demo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C868C8542593298E0019D07A;
+			productRefGroup = C868C85E2593298E0019D07A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C868C85C2593298E0019D07A /* TenserFlow Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C868C85B2593298E0019D07A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C868C884259355180019D07A /* TabBarCollectionViewCell.xib in Resources */,
+				C88C941025A0993A002CAFC3 /* ClassificationViewController.xib in Resources */,
+				C868C86D259329900019D07A /* LaunchScreen.storyboard in Resources */,
+				C868C86A259329900019D07A /* Assets.xcassets in Resources */,
+				C8413BD925A438B400BE0566 /* ObjectDetectionViewController.xib in Resources */,
+				C8413BD025A437C200BE0566 /* ImageQualityViewController.xib in Resources */,
+				C868C8682593298E0019D07A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		29F53A62262B211A5B2C6A81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TenserFlow Demo/Pods-TenserFlow Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TenserFlow Demo/Pods-TenserFlow Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TenserFlow Demo/Pods-TenserFlow Demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AF37EE73C9FA858B1D00B00 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TenserFlow Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C868C8592593298E0019D07A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8FC4B3125A32DC800EECCF0 /* UIViewController.swift in Sources */,
+				C868C883259355180019D07A /* TabBarCollectionViewCell.swift in Sources */,
+				C88C942B25A30B6A002CAFC3 /* UIImage.swift in Sources */,
+				C8413BF825A4842E00BE0566 /* ObjectDetectionViewModel.swift in Sources */,
+				C8413BCF25A437C200BE0566 /* ImageQualityViewController.swift in Sources */,
+				C8FC4B2D25A32A9400EECCF0 /* ClassificationViewModel.swift in Sources */,
+				C868C8652593298E0019D07A /* TabViewController.swift in Sources */,
+				C8FC4B2925A31C5400EECCF0 /* DataCoader.swift in Sources */,
+				C88C940F25A0993A002CAFC3 /* ClassificationViewController.swift in Sources */,
+				C868C8612593298E0019D07A /* AppDelegate.swift in Sources */,
+				C8413BDC25A43B0500BE0566 /* AllResonse.swift in Sources */,
+				C868C8632593298E0019D07A /* SceneDelegate.swift in Sources */,
+				C8FC4B2625A3186B00EECCF0 /* ClassificationResponse.swift in Sources */,
+				C868C8972599DFA90019D07A /* UtilityManager.swift in Sources */,
+				C8413E1A25AC5A8500BE0566 /* RectangleView.swift in Sources */,
+				C8413BD825A438B400BE0566 /* ObjectDetectionViewController.swift in Sources */,
+				C868C88825935A5A0019D07A /* TabViewViewModel.swift in Sources */,
+				C868C89A2599F97A0019D07A /* Configuration.swift in Sources */,
+				C8413E1E25AC5E9E00BE0566 /* String.swift in Sources */,
+				C8413BD325A4386F00BE0566 /* ImageQualityViewModel.swift in Sources */,
+				C868C8922599DDC80019D07A /* StringConstants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C868C8662593298E0019D07A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C868C8672593298E0019D07A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C868C86B259329900019D07A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C868C86C259329900019D07A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C868C86F259329900019D07A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C868C870259329900019D07A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C868C872259329900019D07A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A96C46A2CE8F0795107DEFD /* Pods-TenserFlow Demo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 778PCDF96V;
+				INFOPLIST_FILE = "TenserFlow Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.home.TenserFlow-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C868C873259329900019D07A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B40F5044CFCFC161FE48A52F /* Pods-TenserFlow Demo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 778PCDF96V;
+				INFOPLIST_FILE = "TenserFlow Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.home.TenserFlow-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C868C8582593298E0019D07A /* Build configuration list for PBXProject "TenserFlow Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C868C86F259329900019D07A /* Debug */,
+				C868C870259329900019D07A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C868C871259329900019D07A /* Build configuration list for PBXNativeTarget "TenserFlow Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C868C872259329900019D07A /* Debug */,
+				C868C873259329900019D07A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C868C8552593298E0019D07A /* Project object */;
+}
