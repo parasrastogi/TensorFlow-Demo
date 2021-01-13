@@ -19,11 +19,11 @@ class ClassificationViewController: UIViewController {
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var MainLabelProb: UIProgressView!
     @IBOutlet weak var mainPercLabel: UILabel!
-    @IBOutlet weak var subLabel: UILabel!
-    @IBOutlet weak var subLabelProb: UIProgressView!
-    @IBOutlet weak var subPercLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
+    @IBOutlet weak var subLabelStackView: UIStackView!
+    @IBOutlet weak var subTitlePercLabel: UILabel!
     @IBOutlet weak var mainProgressView: UIProgressView!
-    @IBOutlet weak var subProgressView: UIProgressView!
+    @IBOutlet weak var subTitleProgressView: UIProgressView!
     
     var classificationViewModel : ClassificationViewModel!
     
@@ -45,21 +45,17 @@ class ClassificationViewController: UIViewController {
         }
 
         classificationViewModel.subLabelPerc.bind(to: self) { (vc, value) in
-            vc.subProgressView.progress = value
-            vc.subPercLabel.text = String(format: "%.2f%%", value * 100)
+            vc.subTitleProgressView.progress = value
+            vc.subTitlePercLabel.text = String(format: "%.2f%%", value * 100)
         }
      
         classificationViewModel.subLabelName.observeNext { (sublabelName) in
             if sublabelName.isEmpty{
-                self.subLabel.isHidden = true
-                self.subLabelProb.isHidden = true
-                self.subPercLabel.isHidden = true
-              
+                self.subLabelStackView.isHidden = true
+                self.subTitleProgressView.isHidden = true
             }else{
-                self.subLabel.isHidden = false
-                self.subLabelProb.isHidden = false
-                self.subPercLabel.isHidden = false
-                self.subLabel.text = sublabelName
+                self.subLabelStackView.isHidden = false
+                self.subTitleLabel.text = sublabelName
             }
         }.dispose(in: bag)
 

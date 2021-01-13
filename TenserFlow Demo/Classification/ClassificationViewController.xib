@@ -18,10 +18,10 @@
                 <outlet property="mainLabel" destination="6io-Oq-ffp" id="GXd-Zq-1TI"/>
                 <outlet property="mainPercLabel" destination="8ik-r5-fy5" id="w4p-Vd-go9"/>
                 <outlet property="mainProgressView" destination="DQ9-5w-BGE" id="ZFx-YX-Zaf"/>
-                <outlet property="subLabel" destination="tld-hc-rHs" id="0h4-8C-b7g"/>
-                <outlet property="subLabelProb" destination="jF0-OU-eWG" id="cPU-GU-Wb4"/>
-                <outlet property="subPercLabel" destination="R2r-Sl-yAr" id="fV2-ML-3qK"/>
-                <outlet property="subProgressView" destination="jF0-OU-eWG" id="bCb-dO-76M"/>
+                <outlet property="subLabelStackView" destination="G0e-BJ-JwO" id="BlW-Of-NBQ"/>
+                <outlet property="subTitleLabel" destination="tld-hc-rHs" id="0h4-8C-b7g"/>
+                <outlet property="subTitlePercLabel" destination="R2r-Sl-yAr" id="fV2-ML-3qK"/>
+                <outlet property="subTitleProgressView" destination="jF0-OU-eWG" id="kOL-X0-Iky"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="widthLabel" destination="GwN-kP-rM7" id="hwD-Ny-9Zw"/>
             </connections>
