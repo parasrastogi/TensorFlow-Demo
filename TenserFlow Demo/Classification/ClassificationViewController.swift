@@ -56,6 +56,7 @@ class ClassificationViewController: UIViewController {
             }else{
                 self.subLabelStackView.isHidden = false
                 self.subTitleLabel.text = sublabelName
+                self.subTitleProgressView.isHidden = false
             }
         }.dispose(in: bag)
 

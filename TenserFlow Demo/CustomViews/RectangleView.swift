@@ -65,7 +65,6 @@ class RectangleView : UIView{
             //color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
         }
         
-        debugPrint("title - \(title) --- color - \(color)")
         self.layer.borderColor = color.cgColor
         // self.layer.borderColor = uiColor.cgColor
     }

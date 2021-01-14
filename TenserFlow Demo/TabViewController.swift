@@ -4,7 +4,6 @@
 //
 //  Created by Paras Rastogi on 23/12/20.
 //
-
 import UIKit
 import Bond
 import Alamofire
@@ -22,6 +21,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     weak var objectDetectionVC: ObjectDetectionViewController!
     let viewModel = TabViewViewModel()
     var rectViewArr : [RectangleView] = []
+    var result : Result?
     // @IBOutlet weak var textLable: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,15 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         hideAllViews()
         objectDetectionVC.onTagTapHandler = {[weak self] index in
             self?.toggleRectangles(index)
+        }
+        objectDetectionVC.sliderChangedHandler = {[weak self] decimalVal in
+            let objectList = self?.result?.objectDetection.objects
+            let filterdObjects = objectList?.filter({ (obj) -> Bool in
+                obj.prob <= decimalVal
+            })
+            
+        //    hideRectViews(isHidden: false, rectViewArr: filterdObjects)
+            
         }
     }
     
@@ -132,23 +141,23 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
             self.imageQualityVC.view.isHidden = true
             self.classificationVC.view.isHidden = false
             self.objectDetectionVC.view.isHidden = true
-            hideRectViews(isHidden: true)
+            hideRectViews(isHidden: true, rectViewArr: rectViewArr)
         case .imageQuality:
             self.imageQualityVC.view.isHidden = false
             self.classificationVC.view.isHidden = true
             self.objectDetectionVC.view.isHidden = true
-            hideRectViews(isHidden: true)
+            hideRectViews(isHidden: true, rectViewArr: rectViewArr)
             debugPrint("obj quality")
         case .objectDetection:
             self.imageQualityVC.view.isHidden = true
             self.classificationVC.view.isHidden = true
             self.objectDetectionVC.view.isHidden = false
-            hideRectViews(isHidden: false)
+            hideRectViews(isHidden: false, rectViewArr: rectViewArr)
             debugPrint("obj det")
         }
     }
     
-    func hideRectViews(isHidden: Bool){
+    func hideRectViews(isHidden: Bool, rectViewArr: [RectangleView]){
         for view in rectViewArr{
             view.isHidden = isHidden
         }
@@ -182,6 +191,8 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         pickedImage.image = image
         imageHeightConstraint.constant = pickedImage.bounds.width * (image.size.height / image.size.width)
         picker.dismiss(animated: true, completion: nil)
+        rectViewArr.removeAll()
+        overlayView.subviews.map({ $0.removeFromSuperview() })
         uploadImage(image: image)
     }
     
@@ -224,6 +235,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     
     func handleResonse(allResponse: AllResponse){
         //showCurrentView(tab: viewModel.selectedTab.value)
+        result = allResponse.result
         classificationVC.classificationViewModel.refreshData(allResponse: allResponse)
         imageQualityVC.imageQualityViewModel.refreshData(allResponse: allResponse)
         objectDetectionVC.objectDetectionViewModel.refreshData(allResponse: allResponse)
