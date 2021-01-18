@@ -16,12 +16,15 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     @IBOutlet weak var pickedImage: UIImageView!
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var msgPlaceHolderLabel: UILabel!
     weak var classificationVC: ClassificationViewController!
     weak var imageQualityVC: ImageQualityViewController!
     weak var objectDetectionVC: ObjectDetectionViewController!
     let viewModel = TabViewViewModel()
     var rectViewArr : [RectangleView] = []
     var result : Result?
+    var allResponse: AllResponse?
+    var isDataLoaded = false
     // @IBOutlet weak var textLable: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +36,21 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
             self?.toggleRectangles(index)
         }
         objectDetectionVC.sliderChangedHandler = {[weak self] decimalVal in
-            let objectList = self?.result?.objectDetection.objects
-            let filterdObjects = objectList?.filter({ (obj) -> Bool in
-                obj.prob <= decimalVal
-            })
-            
-        //    hideRectViews(isHidden: false, rectViewArr: filterdObjects)
-            
+            self?.showHideViewOnSlide(decimalVal)
         }
     }
-    
+
+    func showHideViewOnSlide(_ decimalVal: Float){
+        for rect in rectViewArr{
+            if rect.prob >= decimalVal{
+                rect.layer.borderWidth = 2
+                rect.label.isHidden = false
+            }else{
+                rect.layer.borderWidth = 0
+                rect.label.isHidden = true
+            }
+        }
+    }
     
     func toggleRectangles(_ index: Int){
        let rectView = rectViewArr[index]
@@ -79,6 +87,14 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     }
     
     func initialSetUp(){
+      
+        let main_string = "Tap on \"Take Picture\" to upload a Picture."
+        let string_to_color = "Take Picture"
+        let attributedString = NSMutableAttributedString(string:main_string)
+        let range = (main_string as NSString).range(of: string_to_color)
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(rgb: 0x3274DC) , range: range)
+        msgPlaceHolderLabel.attributedText = attributedString
+        
         viewModel.tabButtons.bind(to: tabBarCollectionView) { [weak self]( array, indexPath, collectionView) -> UICollectionViewCell in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarCollectionViewCell.identifier , for: indexPath) as! TabBarCollectionViewCell
             debugPrint(array)
@@ -101,19 +117,6 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         viewModel.selectedTab.bind(to: self) { (vc, tab) in
             vc.showCurrentView(tab: tab)
         }.dispose(in: bag)
-        
-        //        viewModel.selectedTab.observeNext { (tab) in  // use bind setter
-        //            switch tab{
-        //            case .classification:
-        //                debugPrint("classification")
-        //                self.imageQualityVC.view.isHidden = true
-        //            case .imageQuality:
-        //                debugPrint("obj quality")
-        //            case .objectDetection:
-        //
-        //                debugPrint("obj det")
-        //            }
-        //        }.dispose(in: bag)
     }
     
     private func addPhotosAction() {
@@ -139,11 +142,11 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         case .classification:
             debugPrint("classification")
             self.imageQualityVC.view.isHidden = true
-            self.classificationVC.view.isHidden = false
+            self.classificationVC.view.isHidden = !isDataLoaded
             self.objectDetectionVC.view.isHidden = true
             hideRectViews(isHidden: true, rectViewArr: rectViewArr)
         case .imageQuality:
-            self.imageQualityVC.view.isHidden = false
+            self.imageQualityVC.view.isHidden = !isDataLoaded
             self.classificationVC.view.isHidden = true
             self.objectDetectionVC.view.isHidden = true
             hideRectViews(isHidden: true, rectViewArr: rectViewArr)
@@ -151,7 +154,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         case .objectDetection:
             self.imageQualityVC.view.isHidden = true
             self.classificationVC.view.isHidden = true
-            self.objectDetectionVC.view.isHidden = false
+            self.objectDetectionVC.view.isHidden = !isDataLoaded
             hideRectViews(isHidden: false, rectViewArr: rectViewArr)
             debugPrint("obj det")
         }
@@ -192,56 +195,36 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         imageHeightConstraint.constant = pickedImage.bounds.width * (image.size.height / image.size.width)
         picker.dismiss(animated: true, completion: nil)
         rectViewArr.removeAll()
+        msgPlaceHolderLabel.isHidden = true
         overlayView.subviews.map({ $0.removeFromSuperview() })
+        hideAllViews()
         uploadImage(image: image)
     }
     
     func uploadImage(image: UIImage){
-        if let compressedImageData = image.jpeg(.medium) {
-            hideAllViews()
-            UtilityManager.showProgress(status: "Uploading photo...")
-            print(compressedImageData.count)
-            let compressedJPGImage = UIImage(data: compressedImageData)
-            let imageData = ["content": viewModel.getBase64(image: compressedJPGImage!)]
-            let request : [String: Any] = ["request_type": "AL", "input_type":"BASE64", "API_KEY":"GDWJC8P38YQL3S2","image": imageData ]
-            let requestParam = ["request" : request]
-            
-            Alamofire.request("https://api.inscene.ai/annotate?v=1.3", method: .post, parameters: requestParam, encoding: JSONEncoding.default)
-                .responseJSON {[weak self] response in
-                    UtilityManager.hideProgress()
-                    switch response.result{
-                    case .success(let res):
-                        if let res = res as? [String : Any]{
-                            do {
-                                print(res)
-                                let  responseData = try DataCoder.decode(AllResponse.self, from: res)
-                                self?.handleResonse(allResponse: responseData)
-                                //
-                                debugPrint(responseData)
-                            } catch {
-                                print(error)
-                            }
-                        }
-                        
-                    case .failure(_):
-                        debugPrint("jerror response")
-                        
-                    }
-                }
-        }else{
-            debugPrint("Image compression failed.")
+        viewModel.uploadImage(image: image) {[weak self] (allresponse) in
+            self?.handleResonse(allResponse: allresponse)
         }
     }
     
     func handleResonse(allResponse: AllResponse){
-        //showCurrentView(tab: viewModel.selectedTab.value)
-        result = allResponse.result
-        classificationVC.classificationViewModel.refreshData(allResponse: allResponse)
-        imageQualityVC.imageQualityViewModel.refreshData(allResponse: allResponse)
-        objectDetectionVC.objectDetectionViewModel.refreshData(allResponse: allResponse)
-        
-        _ = allResponse.result.objectDetection.objects.map { drawRectangle(xmin: $0.xmin, xmax: $0.xmax, ymin: $0.ymin, ymax: $0.ymax , objTitle: $0.mainLabel)  }
-        showCurrentView(tab: viewModel.selectedTab.value)
+        if allResponse.status == 1{
+            isDataLoaded = true
+            result = allResponse.result
+            classificationVC.classificationViewModel.refreshData(allResponse: allResponse)
+            imageQualityVC.imageQualityViewModel.refreshData(allResponse: allResponse)
+            objectDetectionVC.objectDetectionViewModel.refreshData(allResponse: allResponse)
+            
+            _ = allResponse.result?.objectDetection.objects.map { drawRectangle(xmin: $0.xmin, xmax: $0.xmax, ymin: $0.ymin, ymax: $0.ymax , objTitle: $0.mainLabel, prob: CGFloat($0.prob))  }
+            showCurrentView(tab: viewModel.selectedTab.value)
+        }else{
+            showErrorMsg(allResponse)
+        }
+
+    }
+    
+    func showErrorMsg(_ allResponse: AllResponse){
+        msgPlaceHolderLabel.text = allResponse.error?.errorMsg
     }
     
     fileprivate func openCustomGallery() {
@@ -258,7 +241,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         
     }
     
-    func drawRectangle(xmin: Int , xmax: Int, ymin: Int, ymax: Int, objTitle: String){
+    func drawRectangle(xmin: Int , xmax: Int, ymin: Int, ymax: Int, objTitle: String, prob: CGFloat){
         // get screen size object.
         let screenSize: CGRect = UIScreen.main.bounds
         let imageSize = pickedImage.image?.size ?? .zero
@@ -283,7 +266,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         let rectFrame: CGRect = CGRect(x:CGFloat(xPos), y:CGFloat(yPos), width:CGFloat(rectWidth) * widthRatio  , height:CGFloat(rectHeight) * heightRatio)
         
         // Create a UIView object which use above CGRect object.
-        let rectangleView = RectangleView(name: objTitle, frame: rectFrame)
+        let rectangleView = RectangleView(name: objTitle, prob: Float(prob), frame: rectFrame)
         rectangleView.layer.borderWidth = 2
         //rectangleView.layer.borderColor = UIColor.red.cgColor
         // Add above UIView object as the main view's subview.

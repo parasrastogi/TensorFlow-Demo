@@ -8,7 +8,7 @@
 import Foundation
 
 struct AppMessages{
-    
+    static let baseUrl = " https://api.inscene.ai/"
     struct Alert {
         static let cameraPermissionMessage = "Camera access required for capturing photos!"
         static let photosLibraryPermissionMessage = "Photos access required for capturing photos!"

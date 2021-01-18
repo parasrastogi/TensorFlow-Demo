@@ -103,6 +103,12 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6A-3X-Iau">
+                                <rect key="frame" x="10" y="438" width="394" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="URz-v4-Z5l" userLabel="Separator View">
                                 <rect key="frame" x="8" y="802" width="398" height="2"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
@@ -114,8 +120,10 @@
                                 <rect key="frame" x="8" y="804" width="398" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yef-d8-b4V">
-                                        <rect key="frame" x="172" y="10" width="54" height="30"/>
-                                        <state key="normal" title="Camera"/>
+                                        <rect key="frame" x="156.66666666666666" y="10" width="85" height="30"/>
+                                        <state key="normal" title="Take Picture">
+                                            <color key="titleColor" red="0.19607843137254902" green="0.45490196078431372" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -133,11 +141,14 @@
                             <constraint firstItem="URz-v4-Z5l" firstAttribute="top" secondItem="cvW-26-lUy" secondAttribute="bottom" id="3GZ-Y6-1qt"/>
                             <constraint firstItem="URz-v4-Z5l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="4fa-8i-kUe"/>
                             <constraint firstItem="URz-v4-Z5l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="8AW-Td-QtF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c6A-3X-Iau" secondAttribute="trailing" constant="10" id="FSK-3H-pnd"/>
                             <constraint firstItem="cvW-26-lUy" firstAttribute="top" secondItem="yxY-tm-7kd" secondAttribute="bottom" id="FUk-vT-1f2"/>
+                            <constraint firstItem="c6A-3X-Iau" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ITc-3b-dWE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cvW-26-lUy" secondAttribute="trailing" id="aqc-S6-dib"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="URz-v4-Z5l" secondAttribute="trailing" constant="8" id="j6c-BN-Uxm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OHe-hQ-0Ga" secondAttribute="trailing" constant="8" id="lDQ-ak-bsY"/>
                             <constraint firstItem="yxY-tm-7kd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="qkN-it-r7C"/>
+                            <constraint firstItem="c6A-3X-Iau" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qrj-M0-Hty"/>
                             <constraint firstItem="yxY-tm-7kd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="riA-1W-uTU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="URz-v4-Z5l" secondAttribute="trailing" constant="8" id="uLX-Jz-5QF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OHe-hQ-0Ga" secondAttribute="bottom" constant="8" id="uYN-NV-cBk"/>
@@ -148,6 +159,7 @@
                     </view>
                     <connections>
                         <outlet property="imageHeightConstraint" destination="hta-3g-9WK" id="XFx-LG-toz"/>
+                        <outlet property="msgPlaceHolderLabel" destination="c6A-3X-Iau" id="duc-Lo-nGq"/>
                         <outlet property="overlayView" destination="bdf-AD-khS" id="QO4-LL-D6L"/>
                         <outlet property="pickedImage" destination="E0c-ZE-SsO" id="ohM-sl-fr5"/>
                         <outlet property="replacableView" destination="5se-K5-mmL" id="b84-eb-ZzS"/>

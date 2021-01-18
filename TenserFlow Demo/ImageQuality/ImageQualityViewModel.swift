@@ -17,10 +17,10 @@ class ImageQualityViewModel {
     var lineDrawing = Observable<Bool>(false)
     
     func refreshData(allResponse: AllResponse){
-        imageQuality.value = allResponse.result.quality.qualityScale
-        construction.value = allResponse.result.quality.construction
-        blurry.value = allResponse.result.quality.isBlur
-        lineDrawing.value = allResponse.result.quality.isLineDrawing
+        imageQuality.value = allResponse.result?.quality.qualityScale ?? ""
+        construction.value = ((allResponse.result?.quality.construction) != nil)
+        blurry.value = ((allResponse.result?.quality.isBlur) != nil)
+        lineDrawing.value = ((allResponse.result?.quality.isLineDrawing) != nil)
     }
 }
 

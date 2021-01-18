@@ -13,11 +13,13 @@ class RectangleView : UIView{
     static var objectAndColorDic = [String : UIColor]()
     var label: UILabel = UILabel()
     var title: String = ""
+    var prob: Float = 0
     static var index = 0
-    init( name: String, frame: CGRect) {
+    init( name: String, prob: Float, frame: CGRect) {
         super.init(frame: frame)
         title = name
         label.text = title
+        self.prob = prob
         addCustomView()
     }
     

@@ -2,12 +2,14 @@ import Foundation
 
 // MARK: - Welcome
 struct AllResponse: Codable {
-    let result: Result
+    let result: Result?
     let status: Int
-
+    let error: Error?
+    
     enum CodingKeys: String, CodingKey {
         case result = "Result"
         case status = "Status"
+        case error = "Error"
     }
 }
 
@@ -23,6 +25,16 @@ struct Result: Codable {
         case metaInfo = "MetaInfo"
         case objectDetection = "ObjectDetection"
         case quality = "Quality"
+    }
+}
+ // MARK: - Error
+struct Error: Codable {
+    let errorCode: Int
+    let errorMsg: String
+
+    enum CodingKeys: String, CodingKey{
+        case errorCode = "ErrorCode"
+        case errorMsg = "ErrorMsg"
     }
 }
 

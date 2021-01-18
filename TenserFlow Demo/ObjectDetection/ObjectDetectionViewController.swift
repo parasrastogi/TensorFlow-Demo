@@ -9,7 +9,7 @@ import TagListView
 
 class ObjectDetectionViewController: UIViewController {
     @IBOutlet weak var tagListView: TagListView!
-    @IBOutlet weak var sliderValue: UILabel!
+    @IBOutlet weak var sliderValueLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     var objectDetectionViewModel: ObjectDetectionViewModel!
     var onTagTapHandler: ((Int) -> Void)?
@@ -21,8 +21,24 @@ class ObjectDetectionViewController: UIViewController {
     }
     
     @IBAction func objectProbSliderChanged(_ sender: UISlider) {
-        print(sender.value)
-        sliderValue.text = String(format: "%.2f", sender.value)
+        let roundedVal = Double(round(100*sender.value)/100) // round 2 decimal places
+        sliderValueLabel.text = String(format: "%.2f%%", roundedVal)
+        if let sliderChangedHandler = sliderChangedHandler{
+            sliderChangedHandler(Float(roundedVal))
+            changeTabButtonColorOnSlide(Float(roundedVal))
+        }
+    }
+    
+    
+    
+    func changeTabButtonColorOnSlide(_ value: Float){
+        for (index,obj) in  objectDetectionViewModel.objectsList.enumerated(){
+            if obj.prob >= value{
+                tagListView.tagViews[index].isSelected = false
+            }else{
+                tagListView.tagViews[index].isSelected = true
+            }
+        }
     }
     
     func bindViewModel(){
@@ -38,7 +54,10 @@ class ObjectDetectionViewController: UIViewController {
         
         objectDetectionViewModel.maxValOfSlider.observeNext { [weak self] (maxVal) in
             self?.slider.maximumValue = maxVal
+            self?.slider.value = maxVal - 0.05
+            self?.sliderValueLabel.text = String(format: "%.2f%%", self?.slider.value as! CVarArg)
         }.dispose(in: bag)
+        
     }
 }
 

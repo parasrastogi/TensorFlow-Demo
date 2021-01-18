@@ -28,6 +28,7 @@
 		C868C8922599DDC80019D07A /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868C8912599DDC80019D07A /* StringConstants.swift */; };
 		C868C8972599DFA90019D07A /* UtilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868C8962599DFA90019D07A /* UtilityManager.swift */; };
 		C868C89A2599F97A0019D07A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868C8992599F97A0019D07A /* Configuration.swift */; };
+		C879E32625B01D9800AB2380 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C879E32525B01D9800AB2380 /* UIColor.swift */; };
 		C88C940F25A0993A002CAFC3 /* ClassificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88C940D25A0993A002CAFC3 /* ClassificationViewController.swift */; };
 		C88C941025A0993A002CAFC3 /* ClassificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C88C940E25A0993A002CAFC3 /* ClassificationViewController.xib */; };
 		C88C942B25A30B6A002CAFC3 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88C942A25A30B6A002CAFC3 /* UIImage.swift */; };
@@ -64,6 +65,7 @@
 		C868C8912599DDC80019D07A /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		C868C8962599DFA90019D07A /* UtilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityManager.swift; sourceTree = "<group>"; };
 		C868C8992599F97A0019D07A /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		C879E32525B01D9800AB2380 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		C88C940D25A0993A002CAFC3 /* ClassificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationViewController.swift; sourceTree = "<group>"; };
 		C88C940E25A0993A002CAFC3 /* ClassificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassificationViewController.xib; sourceTree = "<group>"; };
 		C88C942A25A30B6A002CAFC3 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		C868C85F2593298E0019D07A /* TenserFlow Demo */ = {
 			isa = PBXGroup;
 			children = (
+				C879E32825B0293700AB2380 /* TabViewController */,
 				C8413E1825AC5A6700BE0566 /* CustomViews */,
 				C8413BD525A4389A00BE0566 /* ObjectDetection */,
 				C8413BCC25A437A900BE0566 /* ImageQuality */,
@@ -162,13 +165,10 @@
 				C868C87C259353CA0019D07A /* Cell */,
 				C868C8602593298E0019D07A /* AppDelegate.swift */,
 				C868C8622593298E0019D07A /* SceneDelegate.swift */,
-				C868C8642593298E0019D07A /* TabViewController.swift */,
-				C868C8662593298E0019D07A /* Main.storyboard */,
+				C8413BDB25A43B0500BE0566 /* AllResonse.swift */,
 				C868C869259329900019D07A /* Assets.xcassets */,
 				C868C86B259329900019D07A /* LaunchScreen.storyboard */,
 				C868C86E259329900019D07A /* Info.plist */,
-				C868C88725935A5A0019D07A /* TabViewViewModel.swift */,
-				C8413BDB25A43B0500BE0566 /* AllResonse.swift */,
 			);
 			path = "TenserFlow Demo";
 			sourceTree = "<group>";
@@ -200,12 +200,23 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		C879E32825B0293700AB2380 /* TabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C868C8642593298E0019D07A /* TabViewController.swift */,
+				C868C8662593298E0019D07A /* Main.storyboard */,
+				C868C88725935A5A0019D07A /* TabViewViewModel.swift */,
+			);
+			path = TabViewController;
+			sourceTree = "<group>";
+		};
 		C88C942925A30B55002CAFC3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				C88C942A25A30B6A002CAFC3 /* UIImage.swift */,
 				C8FC4B3025A32DC800EECCF0 /* UIViewController.swift */,
 				C8413E1D25AC5E9E00BE0566 /* String.swift */,
+				C879E32525B01D9800AB2380 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -346,6 +357,7 @@
 				C8413BCF25A437C200BE0566 /* ImageQualityViewController.swift in Sources */,
 				C8FC4B2D25A32A9400EECCF0 /* ClassificationViewModel.swift in Sources */,
 				C868C8652593298E0019D07A /* TabViewController.swift in Sources */,
+				C879E32625B01D9800AB2380 /* UIColor.swift in Sources */,
 				C8FC4B2925A31C5400EECCF0 /* DataCoader.swift in Sources */,
 				C88C940F25A0993A002CAFC3 /* ClassificationViewController.swift in Sources */,
 				C868C8612593298E0019D07A /* AppDelegate.swift in Sources */,

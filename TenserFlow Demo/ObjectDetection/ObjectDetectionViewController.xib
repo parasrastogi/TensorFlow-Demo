@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ObjectDetectionViewController" customModule="TenserFlow_Demo" customModuleProvider="target">
             <connections>
                 <outlet property="slider" destination="QRy-67-WXn" id="OKd-R4-g4N"/>
-                <outlet property="sliderValue" destination="Njn-gW-a7N" id="HTN-4J-L1a"/>
+                <outlet property="sliderValueLabel" destination="Njn-gW-a7N" id="tnM-Zd-iOL"/>
                 <outlet property="tagListView" destination="3jT-Mu-gbL" id="1F3-Kw-QMb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

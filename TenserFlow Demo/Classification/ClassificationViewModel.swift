@@ -19,15 +19,16 @@ class ClassificationViewModel{
     var mainLabelPerc = Observable<Float>(0)
     var subLabelPerc = Observable<Float>(0)
     var allResponse : AllResponse? = nil
-    
+    var isHidden = Observable<Bool>(true)
     func refreshData(allResponse : AllResponse){
-        widht.value = String(allResponse.result.metaInfo.width)
-        height.value = String(allResponse.result.metaInfo.height)
-        mainlabelName.value = String(allResponse.result.classification.labels[0].name)
-        blurry.value = allResponse.result.quality.isBlur
-        subLabelName.value = String( allResponse.result.classification.subLabel.count > 0 ? allResponse.result.classification.subLabel[0].name : "")
-        mainLabelPerc.value = allResponse.result.classification.labels[0].prob
-        subLabelPerc.value = allResponse.result.classification.subLabel.count > 0 ? allResponse.result.classification.subLabel[0].prob : 0
+        isHidden.value = true
+        widht.value = String(allResponse.result?.metaInfo.width ?? 0)
+        height.value = String(allResponse.result?.metaInfo.height ?? 0)
+        mainlabelName.value = String(allResponse.result?.classification.labels[0].name ??  "")
+        blurry.value = ((allResponse.result?.quality.isBlur) != nil)
+        subLabelName.value = String( allResponse.result?.classification.subLabel.count ?? 0 > 0 ? allResponse.result?.classification.subLabel[0].name ?? "" : "")
+        mainLabelPerc.value = allResponse.result?.classification.labels[0].prob ?? 0
+        subLabelPerc.value = allResponse.result?.classification.subLabel.count ?? 0 > 0 ? allResponse.result?.classification.subLabel[0].prob ?? 0 : 0
         
     }
 }

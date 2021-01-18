@@ -30,6 +30,7 @@ class ClassificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          bindViewModel()
+         
     }
 
     func bindViewModel(){
