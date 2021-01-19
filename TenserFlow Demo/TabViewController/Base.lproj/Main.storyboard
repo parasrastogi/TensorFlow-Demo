@@ -51,7 +51,7 @@
                                                             </mask>
                                                         </variation>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5se-K5-mmL" userLabel="Replacable View">
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5se-K5-mmL" userLabel="Replacable View">
                                                         <rect key="frame" x="0.0" y="372" width="414" height="333"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </view>
@@ -169,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="123" y="88"/>
+            <point key="canvasLocation" x="46" y="88"/>
         </scene>
     </scenes>
     <resources>

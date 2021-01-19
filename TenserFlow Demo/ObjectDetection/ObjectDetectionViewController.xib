@@ -38,7 +38,7 @@
                         </label>
                     </subviews>
                 </stackView>
-                <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="QRy-67-WXn">
+                <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="QRy-67-WXn">
                     <rect key="frame" x="8" y="104" width="398" height="31"/>
                     <connections>
                         <action selector="objectProbSliderChanged:" destination="-1" eventType="valueChanged" id="2Wj-Xp-m5m"/>

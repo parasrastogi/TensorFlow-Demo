@@ -25,6 +25,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     var result : Result?
     var allResponse: AllResponse?
     var isDataLoaded = false
+    var changeSliderValueOnTagTapHandler : ((Float) -> Void)?
     // @IBOutlet weak var textLable: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,10 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         }
     }
 
+    override func loadView() {
+        super.loadView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+    }
     func showHideViewOnSlide(_ decimalVal: Float){
         for rect in rectViewArr{
             if rect.prob >= decimalVal{
@@ -53,10 +58,14 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     }
     
     func toggleRectangles(_ index: Int){
-       let rectView = rectViewArr[index]
-       let borderWidth = rectView.layer.borderWidth
+        let rectView = rectViewArr[index]
+        let borderWidth = rectView.layer.borderWidth
         rectView.label.isHidden = (borderWidth == 0) ? false : true
-       rectViewArr[index].layer.borderWidth = (borderWidth == 0) ? 2 : 0
+        rectViewArr[index].layer.borderWidth = (borderWidth == 0) ? 2 : 0
+        debugPrint(rectView.prob)
+        if let changeSliderValueOnTagTapHandler = changeSliderValueOnTagTapHandler{
+            changeSliderValueOnTagTapHandler(rectView.prob)
+        }
     }
     
     func hideAllViews(){
@@ -193,6 +202,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         print(image.size)
         pickedImage.image = image
         imageHeightConstraint.constant = pickedImage.bounds.width * (image.size.height / image.size.width)
+
         picker.dismiss(animated: true, completion: nil)
         rectViewArr.removeAll()
         msgPlaceHolderLabel.isHidden = true
@@ -211,11 +221,13 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         if allResponse.status == 1{
             isDataLoaded = true
             result = allResponse.result
+            _ = allResponse.result?.objectDetection.objects.map { drawRectangle(xmin: $0.xmin, xmax: $0.xmax, ymin: $0.ymin, ymax: $0.ymax , objTitle: $0.mainLabel, prob: CGFloat($0.prob))  }
+            
             classificationVC.classificationViewModel.refreshData(allResponse: allResponse)
             imageQualityVC.imageQualityViewModel.refreshData(allResponse: allResponse)
             objectDetectionVC.objectDetectionViewModel.refreshData(allResponse: allResponse)
             
-            _ = allResponse.result?.objectDetection.objects.map { drawRectangle(xmin: $0.xmin, xmax: $0.xmax, ymin: $0.ymin, ymax: $0.ymax , objTitle: $0.mainLabel, prob: CGFloat($0.prob))  }
+
             showCurrentView(tab: viewModel.selectedTab.value)
         }else{
             showErrorMsg(allResponse)

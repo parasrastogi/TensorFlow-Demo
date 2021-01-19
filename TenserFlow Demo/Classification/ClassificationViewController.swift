@@ -30,7 +30,8 @@ class ClassificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          bindViewModel()
-         
+        self.view.layoutIfNeeded()
+        self.parent?.view.layoutIfNeeded()
     }
 
     func bindViewModel(){

@@ -20,6 +20,7 @@ class ClassificationViewModel{
     var subLabelPerc = Observable<Float>(0)
     var allResponse : AllResponse? = nil
     var isHidden = Observable<Bool>(true)
+    
     func refreshData(allResponse : AllResponse){
         isHidden.value = true
         widht.value = String(allResponse.result?.metaInfo.width ?? 0)

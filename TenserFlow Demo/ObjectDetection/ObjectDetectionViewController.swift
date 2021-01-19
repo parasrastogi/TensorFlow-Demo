@@ -18,22 +18,28 @@ class ObjectDetectionViewController: UIViewController {
         super.viewDidLoad()
         bindViewModel()
         tagListView.delegate = self
+        if let parentVc = self.parent{
+            if let tabVC = parentVc as? TabViewController{
+                tabVC.changeSliderValueOnTagTapHandler = {[weak self] confidenceValue in
+                    self?.objectDetectionViewModel.currentValOfSlider.value = confidenceValue
+                }
+            }
+        }
     }
     
     @IBAction func objectProbSliderChanged(_ sender: UISlider) {
-        let roundedVal = Double(round(100*sender.value)/100) // round 2 decimal places
-        sliderValueLabel.text = String(format: "%.2f%%", roundedVal)
+        let roundedVal = Double(round(100 * sender.value)/100) // round 2 decimal places
+        sliderValueLabel.text = String(format: "%.2f%", roundedVal)
         if let sliderChangedHandler = sliderChangedHandler{
             sliderChangedHandler(Float(roundedVal))
             changeTabButtonColorOnSlide(Float(roundedVal))
         }
     }
     
-    
-    
     func changeTabButtonColorOnSlide(_ value: Float){
         for (index,obj) in  objectDetectionViewModel.objectsList.enumerated(){
-            if obj.prob >= value{
+            let roundedVal = Double(round(100 * obj.prob)/100)
+            if Float(roundedVal) >= value{
                 tagListView.tagViews[index].isSelected = false
             }else{
                 tagListView.tagViews[index].isSelected = true
@@ -52,13 +58,31 @@ class ObjectDetectionViewController: UIViewController {
             vc.tagListView.textFont = UIFont.systemFont(ofSize: 16)
         }
         
-        objectDetectionViewModel.maxValOfSlider.observeNext { [weak self] (maxVal) in
-            self?.slider.maximumValue = maxVal
-            self?.slider.value = maxVal - 0.05
-            self?.sliderValueLabel.text = String(format: "%.2f%%", self?.slider.value as! CVarArg)
+        objectDetectionViewModel.minValOfSlider.observeNext { [weak self] (minVal) in
+            let roundedVal = Double(round(100 * minVal)/100)
+            self?.slider.minimumValue = Float(roundedVal)
         }.dispose(in: bag)
         
+        objectDetectionViewModel.maxValOfSlider.observeNext { [weak self] (maxVal) in
+            let roundedVal = Double(round(100 * maxVal)/100)
+            self?.slider.maximumValue = Float(roundedVal)
+            self?.objectDetectionViewModel.currentValOfSlider.value = Float(roundedVal - 0.05)
+            if let sliderChangedHandler = self?.sliderChangedHandler{
+                sliderChangedHandler(self?.objectDetectionViewModel.currentValOfSlider.value ?? 0)
+                self?.changeTabButtonColorOnSlide(self?.objectDetectionViewModel.currentValOfSlider.value ?? 0)
+            }
+           
+        }.dispose(in: bag)
+       // objectDetectionViewModel.currentValOfSlider.bind(to: slider.reactive.value)
+      //  objectDetectionViewModel.currentValOfSlider.bind(to: sliderValueLabel)
+        
+        objectDetectionViewModel.currentValOfSlider.observeNext { [weak self] (currVal) in
+            self?.slider.value = currVal
+            self?.sliderValueLabel.text = String(format: "%.2f%", self?.slider.value as! CVarArg)
+        }.dispose(in: bag)
+
     }
+    
 }
 
 extension ObjectDetectionViewController: TagListViewDelegate{
@@ -66,6 +90,7 @@ extension ObjectDetectionViewController: TagListViewDelegate{
         if let onTagTapHandler = onTagTapHandler{
             onTagTapHandler(tagView.tag)
             tagView.isSelected = !tagView.isSelected
+            
             debugPrint(tagView.isSelected)
         }
     }
