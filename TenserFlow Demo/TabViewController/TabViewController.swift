@@ -32,6 +32,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     var classificationViewModel = ClassificationViewModel()
     var objectDetectionViewModel = ObjectDetectionViewModel()
     var imageQualityViewModel = ImageQualityViewModel()
+    var changeSliderValueOnTagTapHandler : ((Float) -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
@@ -60,6 +61,9 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
        let borderWidth = rectView.layer.borderWidth
         rectView.label.isHidden = (borderWidth == 0) ? false : true
        rectViewArr[index].layer.borderWidth = (borderWidth == 0) ? 2 : 0
+        if let changeSliderValueOnTagTapHandler = changeSliderValueOnTagTapHandler{
+            changeSliderValueOnTagTapHandler(rectView.prob)
+        }
     }
     
     func hideAllViews(){
@@ -115,27 +119,29 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         
         viewModel.list.bind(to: tableView) {[unowned self] (list, indexPath, tableView) -> UITableViewCell in
             let item =  list[indexPath.row]
-            switch item{
+            switch item {
             case .classification:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ClassificationCell") as! ClassificationTableViewCell
                 cell.setData(self.classificationViewModel)
+                hideRectViews(isHidden: true, rectViewArr: rectViewArr)
                 return cell
             case .imageQuality:
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ImageQualityCell") as! ImageQualityTableViewCell
                 cell.setData(self.imageQualityViewModel)
+                hideRectViews(isHidden: true, rectViewArr: rectViewArr)
                 return cell
             case .objectDetection:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ObjectDetectionCell") as! ObjectDetectionTableViewCell
-                cell.setData(self.objectDetectionViewModel)
+                cell.setData(self.objectDetectionViewModel , viewController: self)
                 cell.onTagTapHandler = {[weak self] index in
                     self?.toggleRectangles(index)
                 }
                 cell.sliderChangedHandler = {[weak self] decimalVal in
                     self?.showHideViewOnSlide(decimalVal)
                 }
+                hideRectViews(isHidden: false, rectViewArr: rectViewArr)
                 return cell
-                
             }
         }.dispose(in: bag)
     }
@@ -251,7 +257,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
             viewModel.dataLoaded = true
             viewModel.tabSelected()
             _ = allResponse.result?.objectDetection.objects.map { drawRectangle(xmin: $0.xmin, xmax: $0.xmax, ymin: $0.ymin, ymax: $0.ymax , objTitle: $0.mainLabel, prob: CGFloat($0.prob))  }
-           // showCurrentView(tab: viewModel.selectedTab.value)
+          //  showCurrentView(tab: viewModel.selectedTab.value)
         }else{
             showErrorMsg(allResponse)
         }

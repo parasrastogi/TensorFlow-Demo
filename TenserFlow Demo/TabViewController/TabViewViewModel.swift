@@ -40,7 +40,6 @@ class TabViewViewModel{
         return strBase64
     }
     
-    
     func tabSelected(){
         if dataLoaded{
             switch selectedTab.value {

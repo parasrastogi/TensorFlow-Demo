@@ -21,6 +21,8 @@ class ObjectDetectionViewModel: CategoryViewModelItem {
     let mainLabels = MutableObservableArray<String>([])
     let maxValOfSlider = Observable<Float>(0)
     var objectsList = [Object]([])
+    let currentValOfSlider = Observable<Float>(0)
+
 func refreshData(allResponse: AllResponse){
     mainLabels.removeAll()
     objectsList = allResponse.result?.objectDetection.objects ?? []
