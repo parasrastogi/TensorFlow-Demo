@@ -32,6 +32,11 @@
 		C88C940F25A0993A002CAFC3 /* ClassificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88C940D25A0993A002CAFC3 /* ClassificationViewController.swift */; };
 		C88C941025A0993A002CAFC3 /* ClassificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C88C940E25A0993A002CAFC3 /* ClassificationViewController.xib */; };
 		C88C942B25A30B6A002CAFC3 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88C942A25A30B6A002CAFC3 /* UIImage.swift */; };
+		C8C3A31A25B6E3B500601657 /* CategoryViewModelItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C3A31925B6E3B500601657 /* CategoryViewModelItemType.swift */; };
+		C8C3A31E25B6E4D200601657 /* CategoryViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C3A31D25B6E4D200601657 /* CategoryViewModelItem.swift */; };
+		C8C3A32625B6ED5500601657 /* ImageQualityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C3A32525B6ED5500601657 /* ImageQualityTableViewCell.swift */; };
+		C8C3A32925B6ED6F00601657 /* ClassificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C3A32825B6ED6F00601657 /* ClassificationTableViewCell.swift */; };
+		C8C3A32C25B6ED8200601657 /* ObjectDetectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C3A32B25B6ED8200601657 /* ObjectDetectionTableViewCell.swift */; };
 		C8FC4B2625A3186B00EECCF0 /* ClassificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FC4B2525A3186B00EECCF0 /* ClassificationResponse.swift */; };
 		C8FC4B2925A31C5400EECCF0 /* DataCoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FC4B2825A31C5400EECCF0 /* DataCoader.swift */; };
 		C8FC4B2D25A32A9400EECCF0 /* ClassificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FC4B2C25A32A9400EECCF0 /* ClassificationViewModel.swift */; };
@@ -69,6 +74,11 @@
 		C88C940D25A0993A002CAFC3 /* ClassificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationViewController.swift; sourceTree = "<group>"; };
 		C88C940E25A0993A002CAFC3 /* ClassificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassificationViewController.xib; sourceTree = "<group>"; };
 		C88C942A25A30B6A002CAFC3 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		C8C3A31925B6E3B500601657 /* CategoryViewModelItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModelItemType.swift; sourceTree = "<group>"; };
+		C8C3A31D25B6E4D200601657 /* CategoryViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModelItem.swift; sourceTree = "<group>"; };
+		C8C3A32525B6ED5500601657 /* ImageQualityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQualityTableViewCell.swift; sourceTree = "<group>"; };
+		C8C3A32825B6ED6F00601657 /* ClassificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationTableViewCell.swift; sourceTree = "<group>"; };
+		C8C3A32B25B6ED8200601657 /* ObjectDetectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionTableViewCell.swift; sourceTree = "<group>"; };
 		C8FC4B2525A3186B00EECCF0 /* ClassificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationResponse.swift; sourceTree = "<group>"; };
 		C8FC4B2825A31C5400EECCF0 /* DataCoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCoader.swift; sourceTree = "<group>"; };
 		C8FC4B2C25A32A9400EECCF0 /* ClassificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationViewModel.swift; sourceTree = "<group>"; };
@@ -111,6 +121,7 @@
 				C8413BCD25A437C200BE0566 /* ImageQualityViewController.swift */,
 				C8413BCE25A437C200BE0566 /* ImageQualityViewController.xib */,
 				C8413BD225A4386F00BE0566 /* ImageQualityViewModel.swift */,
+				C8C3A32525B6ED5500601657 /* ImageQualityTableViewCell.swift */,
 			);
 			path = ImageQuality;
 			sourceTree = "<group>";
@@ -121,6 +132,7 @@
 				C8413BD625A438B400BE0566 /* ObjectDetectionViewController.swift */,
 				C8413BD725A438B400BE0566 /* ObjectDetectionViewController.xib */,
 				C8413BF725A4842E00BE0566 /* ObjectDetectionViewModel.swift */,
+				C8C3A32B25B6ED8200601657 /* ObjectDetectionTableViewCell.swift */,
 			);
 			path = ObjectDetection;
 			sourceTree = "<group>";
@@ -206,6 +218,8 @@
 				C868C8642593298E0019D07A /* TabViewController.swift */,
 				C868C8662593298E0019D07A /* Main.storyboard */,
 				C868C88725935A5A0019D07A /* TabViewViewModel.swift */,
+				C8C3A31925B6E3B500601657 /* CategoryViewModelItemType.swift */,
+				C8C3A31D25B6E4D200601657 /* CategoryViewModelItem.swift */,
 			);
 			path = TabViewController;
 			sourceTree = "<group>";
@@ -228,6 +242,7 @@
 				C88C940E25A0993A002CAFC3 /* ClassificationViewController.xib */,
 				C8FC4B2525A3186B00EECCF0 /* ClassificationResponse.swift */,
 				C8FC4B2C25A32A9400EECCF0 /* ClassificationViewModel.swift */,
+				C8C3A32825B6ED6F00601657 /* ClassificationTableViewCell.swift */,
 			);
 			path = Classification;
 			sourceTree = "<group>";
@@ -351,17 +366,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8FC4B3125A32DC800EECCF0 /* UIViewController.swift in Sources */,
+				C8C3A32925B6ED6F00601657 /* ClassificationTableViewCell.swift in Sources */,
 				C868C883259355180019D07A /* TabBarCollectionViewCell.swift in Sources */,
 				C88C942B25A30B6A002CAFC3 /* UIImage.swift in Sources */,
+				C8C3A31A25B6E3B500601657 /* CategoryViewModelItemType.swift in Sources */,
 				C8413BF825A4842E00BE0566 /* ObjectDetectionViewModel.swift in Sources */,
 				C8413BCF25A437C200BE0566 /* ImageQualityViewController.swift in Sources */,
 				C8FC4B2D25A32A9400EECCF0 /* ClassificationViewModel.swift in Sources */,
+				C8C3A31E25B6E4D200601657 /* CategoryViewModelItem.swift in Sources */,
 				C868C8652593298E0019D07A /* TabViewController.swift in Sources */,
 				C879E32625B01D9800AB2380 /* UIColor.swift in Sources */,
 				C8FC4B2925A31C5400EECCF0 /* DataCoader.swift in Sources */,
 				C88C940F25A0993A002CAFC3 /* ClassificationViewController.swift in Sources */,
 				C868C8612593298E0019D07A /* AppDelegate.swift in Sources */,
 				C8413BDC25A43B0500BE0566 /* AllResonse.swift in Sources */,
+				C8C3A32625B6ED5500601657 /* ImageQualityTableViewCell.swift in Sources */,
+				C8C3A32C25B6ED8200601657 /* ObjectDetectionTableViewCell.swift in Sources */,
 				C868C8632593298E0019D07A /* SceneDelegate.swift in Sources */,
 				C8FC4B2625A3186B00EECCF0 /* ClassificationResponse.swift in Sources */,
 				C868C8972599DFA90019D07A /* UtilityManager.swift in Sources */,

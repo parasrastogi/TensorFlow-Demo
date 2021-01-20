@@ -57,7 +57,6 @@ class ObjectDetectionViewController: UIViewController {
             self?.slider.value = maxVal - 0.05
             self?.sliderValueLabel.text = String(format: "%.2f%%", self?.slider.value as! CVarArg)
         }.dispose(in: bag)
-        
     }
 }
 

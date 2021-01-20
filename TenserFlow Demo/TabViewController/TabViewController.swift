@@ -8,6 +8,7 @@ import UIKit
 import Bond
 import Alamofire
 import TagListView
+import ReactiveKit
 
 class TabViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     @IBOutlet weak var tabBarCollectionView: UICollectionView!
@@ -17,6 +18,8 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var msgPlaceHolderLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
     weak var classificationVC: ClassificationViewController!
     weak var imageQualityVC: ImageQualityViewController!
     weak var objectDetectionVC: ObjectDetectionViewController!
@@ -25,19 +28,19 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     var result : Result?
     var allResponse: AllResponse?
     var isDataLoaded = false
-    // @IBOutlet weak var textLable: UILabel!
+    var tableHeightObserver: NSObjectProtocol?
+    var classificationViewModel = ClassificationViewModel()
+    var objectDetectionViewModel = ObjectDetectionViewModel()
+    var imageQualityViewModel = ImageQualityViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
-        addChildViewControllers()
         initialSetUp()
-        hideAllViews()
-        objectDetectionVC.onTagTapHandler = {[weak self] index in
-            self?.toggleRectangles(index)
-        }
-        objectDetectionVC.sliderChangedHandler = {[weak self] decimalVal in
-            self?.showHideViewOnSlide(decimalVal)
-        }
+        tableHeightObserver = tableView.observe(\.contentSize, options: [.new], changeHandler: {[weak self] (tableView, _) in
+            tableView.layer.removeAllAnimations()
+            self?.tableHeightConstraint.constant = tableView.contentSize.height
+        })
+       
     }
 
     func showHideViewOnSlide(_ decimalVal: Float){
@@ -65,36 +68,28 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         objectDetectionVC.view.isHidden = true
     }
     
-    func addChildViewControllers(){
-        let  classificationVC = ClassificationViewController()
-        classificationVC.classificationViewModel = ClassificationViewModel()
-        addChildViewController(viewController: classificationVC, containerView: self.replacableView)
-        self.classificationVC = classificationVC
-        
-        let objectDetectionVC = ObjectDetectionViewController()
-        objectDetectionVC.objectDetectionViewModel = ObjectDetectionViewModel()
-        addChildViewController(viewController: objectDetectionVC, containerView: self.replacableView)
-        self.objectDetectionVC = objectDetectionVC
-        
-        let imageQualityVC = ImageQualityViewController()
-        imageQualityVC.imageQualityViewModel = ImageQualityViewModel()
-        addChildViewController(viewController: imageQualityVC, containerView: self.replacableView)
-        self.imageQualityVC = imageQualityVC
-    }
+//    func addChildViewControllers(){
+//        let  classificationVC = ClassificationViewController()
+//        classificationVC.classificationViewModel = ClassificationViewModel()
+//        addChildViewController(viewController: classificationVC, containerView: self.replacableView)
+//        self.classificationVC = classificationVC
+//
+//        let objectDetectionVC = ObjectDetectionViewController()
+//        objectDetectionVC.objectDetectionViewModel = ObjectDetectionViewModel()
+//        addChildViewController(viewController: objectDetectionVC, containerView: self.replacableView)
+//        self.objectDetectionVC = objectDetectionVC
+//
+//        let imageQualityVC = ImageQualityViewController()
+//        imageQualityVC.imageQualityViewModel = ImageQualityViewModel()
+//        addChildViewController(viewController: imageQualityVC, containerView: self.replacableView)
+//        self.imageQualityVC = imageQualityVC
+//    }
     
     func registerCells() {
         tabBarCollectionView.register(TabBarCollectionViewCell.nib, forCellWithReuseIdentifier: TabBarCollectionViewCell.identifier)
     }
     
-    func initialSetUp(){
-      
-        let main_string = "Tap on \"Take Picture\" to upload a Picture."
-        let string_to_color = "Take Picture"
-        let attributedString = NSMutableAttributedString(string:main_string)
-        let range = (main_string as NSString).range(of: string_to_color)
-        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(rgb: 0x3274DC) , range: range)
-        msgPlaceHolderLabel.attributedText = attributedString
-        
+    fileprivate func bindViewModel() {
         viewModel.tabButtons.bind(to: tabBarCollectionView) { [weak self]( array, indexPath, collectionView) -> UICollectionViewCell in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarCollectionViewCell.identifier , for: indexPath) as! TabBarCollectionViewCell
             debugPrint(array)
@@ -115,8 +110,46 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         }.dispose(in: bag)
         
         viewModel.selectedTab.bind(to: self) { (vc, tab) in
-            vc.showCurrentView(tab: tab)
+            vc.viewModel.tabSelected()
         }.dispose(in: bag)
+        
+        viewModel.list.bind(to: tableView) {[unowned self] (list, indexPath, tableView) -> UITableViewCell in
+            let item =  list[indexPath.row]
+            switch item{
+            case .classification:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ClassificationCell") as! ClassificationTableViewCell
+                cell.setData(self.classificationViewModel)
+                return cell
+            case .imageQuality:
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ImageQualityCell") as! ImageQualityTableViewCell
+                cell.setData(self.imageQualityViewModel)
+                return cell
+            case .objectDetection:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ObjectDetectionCell") as! ObjectDetectionTableViewCell
+                cell.setData(self.objectDetectionViewModel)
+                cell.onTagTapHandler = {[weak self] index in
+                    self?.toggleRectangles(index)
+                }
+                cell.sliderChangedHandler = {[weak self] decimalVal in
+                    self?.showHideViewOnSlide(decimalVal)
+                }
+                return cell
+                
+            }
+        }.dispose(in: bag)
+    }
+    
+    func initialSetUp(){
+      
+        let main_string = "Tap on \"Take Picture\" to upload a Picture."
+        let string_to_color = "Take Picture"
+        let attributedString = NSMutableAttributedString(string:main_string)
+        let range = (main_string as NSString).range(of: string_to_color)
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(rgb: 0x3274DC) , range: range)
+        msgPlaceHolderLabel.attributedText = attributedString
+        bindViewModel()
+
     }
     
     private func addPhotosAction() {
@@ -197,7 +230,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         rectViewArr.removeAll()
         msgPlaceHolderLabel.isHidden = true
         overlayView.subviews.map({ $0.removeFromSuperview() })
-        hideAllViews()
+      //  hideAllViews()
         uploadImage(image: image)
     }
     
@@ -210,17 +243,18 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     func handleResonse(allResponse: AllResponse){
         if allResponse.status == 1{
             isDataLoaded = true
+            self.allResponse = allResponse
             result = allResponse.result
-            classificationVC.classificationViewModel.refreshData(allResponse: allResponse)
-            imageQualityVC.imageQualityViewModel.refreshData(allResponse: allResponse)
-            objectDetectionVC.objectDetectionViewModel.refreshData(allResponse: allResponse)
-            
+            classificationViewModel.refreshData(allResponse: allResponse)
+            imageQualityViewModel.refreshData(allResponse: allResponse)
+            objectDetectionViewModel.refreshData(allResponse: allResponse)
+            viewModel.dataLoaded = true
+            viewModel.tabSelected()
             _ = allResponse.result?.objectDetection.objects.map { drawRectangle(xmin: $0.xmin, xmax: $0.xmax, ymin: $0.ymin, ymax: $0.ymax , objTitle: $0.mainLabel, prob: CGFloat($0.prob))  }
-            showCurrentView(tab: viewModel.selectedTab.value)
+           // showCurrentView(tab: viewModel.selectedTab.value)
         }else{
             showErrorMsg(allResponse)
         }
-
     }
     
     func showErrorMsg(_ allResponse: AllResponse){
@@ -238,7 +272,6 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
                 self.present(myPickerController, animated: false, completion: nil)
             }
         }
-        
     }
     
     func drawRectangle(xmin: Int , xmax: Int, ymin: Int, ymax: Int, objTitle: String, prob: CGFloat){

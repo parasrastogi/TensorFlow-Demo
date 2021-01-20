@@ -9,7 +9,14 @@ import Foundation
 import  Bond
 import ReactiveKit
 
-class ClassificationViewModel{
+class ClassificationViewModel: CategoryViewModelItem{
+    var type: CategoryViewModelItemType{
+        return .classification
+    }
+    
+    var sectionTitle: String{
+        "Classification"
+    }
     
     var widht = Observable<String>("")
     var height = Observable<String>("")
@@ -20,15 +27,16 @@ class ClassificationViewModel{
     var subLabelPerc = Observable<Float>(0)
     var allResponse : AllResponse? = nil
     var isHidden = Observable<Bool>(true)
-    func refreshData(allResponse : AllResponse){
+    
+    func refreshData(allResponse : AllResponse?){
         isHidden.value = true
-        widht.value = String(allResponse.result?.metaInfo.width ?? 0)
-        height.value = String(allResponse.result?.metaInfo.height ?? 0)
-        mainlabelName.value = String(allResponse.result?.classification.labels[0].name ??  "")
-        blurry.value = ((allResponse.result?.quality.isBlur) != nil)
-        subLabelName.value = String( allResponse.result?.classification.subLabel.count ?? 0 > 0 ? allResponse.result?.classification.subLabel[0].name ?? "" : "")
-        mainLabelPerc.value = allResponse.result?.classification.labels[0].prob ?? 0
-        subLabelPerc.value = allResponse.result?.classification.subLabel.count ?? 0 > 0 ? allResponse.result?.classification.subLabel[0].prob ?? 0 : 0
+        widht.value = String(allResponse?.result?.metaInfo.width ?? 0)
+        height.value = String(allResponse?.result?.metaInfo.height ?? 0)
+        mainlabelName.value = String(allResponse?.result?.classification.labels[0].name ??  "")
+        blurry.value = ((allResponse?.result?.quality.isBlur) != nil)
+        subLabelName.value = String( allResponse?.result?.classification.subLabel.count ?? 0 > 0 ? allResponse?.result?.classification.subLabel[0].name ?? "" : "")
+        mainLabelPerc.value = allResponse?.result?.classification.labels[0].prob ?? 0
+        subLabelPerc.value = allResponse?.result?.classification.subLabel.count ?? 0 > 0 ? allResponse?.result?.classification.subLabel[0].prob ?? 0 : 0
         
     }
 }

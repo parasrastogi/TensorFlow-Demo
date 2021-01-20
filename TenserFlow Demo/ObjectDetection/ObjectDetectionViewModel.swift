@@ -9,7 +9,15 @@ import Foundation
 import Bond
 import ReactiveKit
 
-class ObjectDetectionViewModel {
+class ObjectDetectionViewModel: CategoryViewModelItem {
+    var type: CategoryViewModelItemType{
+        return .objectDetection
+    }
+    
+    var sectionTitle: String{
+        "Object Detection"
+    }
+    
     let mainLabels = MutableObservableArray<String>([])
     let maxValOfSlider = Observable<Float>(0)
     var objectsList = [Object]([])

@@ -7,6 +7,7 @@
 
 import Foundation
 import Bond
+import ReactiveKit
 import Alamofire
 
 enum Tabs : Int  {
@@ -26,15 +27,34 @@ enum Tabs : Int  {
     }
 }
 class TabViewViewModel{
-
+    var dataLoaded = false
+    let list = MutableObservableArray<CategoryViewModelItemType>([])
     let tabButtons = MutableObservableArray<Tabs>([Tabs.classification,Tabs.objectDetection,Tabs.imageQuality])
     let selectedTab = Observable<Tabs>(.classification)
     var tabSelectedIndexPath = IndexPath(item: 0, section: 0)
- 
+    var items = [CategoryViewModelItem]()
+    
     func getBase64(image: UIImage) -> String{
         let imageData:NSData = image.pngData()! as NSData
         let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
         return strBase64
+    }
+    
+    
+    func tabSelected(){
+        if dataLoaded{
+            switch selectedTab.value {
+            case .classification:
+                list.replace(with: [.classification])
+            case .objectDetection:
+                list.replace(with: [.objectDetection])
+            case .imageQuality:
+                list.replace(with: [.imageQuality])
+            }
+        }else{
+            list.replace(with: [])
+        }
+   
     }
     
     func uploadImage(image: UIImage, completion: @escaping (AllResponse) -> Void ){
@@ -69,5 +89,5 @@ class TabViewViewModel{
             debugPrint("Image compression failed.")
         }
     }
-   
+    
 }
