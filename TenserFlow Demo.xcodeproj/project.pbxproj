@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C8413BCF25A437C200BE0566 /* ImageQualityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8413BCD25A437C200BE0566 /* ImageQualityViewController.swift */; };
 		C8413BD025A437C200BE0566 /* ImageQualityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8413BCE25A437C200BE0566 /* ImageQualityViewController.xib */; };
 		C8413BD325A4386F00BE0566 /* ImageQualityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8413BD225A4386F00BE0566 /* ImageQualityViewModel.swift */; };
-		C8413BD825A438B400BE0566 /* ObjectDetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8413BD625A438B400BE0566 /* ObjectDetectionViewController.swift */; };
 		C8413BD925A438B400BE0566 /* ObjectDetectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8413BD725A438B400BE0566 /* ObjectDetectionViewController.xib */; };
 		C8413BDC25A43B0500BE0566 /* AllResonse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8413BDB25A43B0500BE0566 /* AllResonse.swift */; };
 		C8413BF825A4842E00BE0566 /* ObjectDetectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8413BF725A4842E00BE0566 /* ObjectDetectionViewModel.swift */; };
@@ -29,7 +27,6 @@
 		C868C8972599DFA90019D07A /* UtilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868C8962599DFA90019D07A /* UtilityManager.swift */; };
 		C868C89A2599F97A0019D07A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C868C8992599F97A0019D07A /* Configuration.swift */; };
 		C879E32625B01D9800AB2380 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C879E32525B01D9800AB2380 /* UIColor.swift */; };
-		C88C940F25A0993A002CAFC3 /* ClassificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88C940D25A0993A002CAFC3 /* ClassificationViewController.swift */; };
 		C88C941025A0993A002CAFC3 /* ClassificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C88C940E25A0993A002CAFC3 /* ClassificationViewController.xib */; };
 		C88C942B25A30B6A002CAFC3 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88C942A25A30B6A002CAFC3 /* UIImage.swift */; };
 		C8C3A31A25B6E3B500601657 /* CategoryViewModelItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C3A31925B6E3B500601657 /* CategoryViewModelItemType.swift */; };
@@ -47,10 +44,8 @@
 /* Begin PBXFileReference section */
 		7A96C46A2CE8F0795107DEFD /* Pods-TenserFlow Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenserFlow Demo.debug.xcconfig"; path = "Target Support Files/Pods-TenserFlow Demo/Pods-TenserFlow Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		B40F5044CFCFC161FE48A52F /* Pods-TenserFlow Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenserFlow Demo.release.xcconfig"; path = "Target Support Files/Pods-TenserFlow Demo/Pods-TenserFlow Demo.release.xcconfig"; sourceTree = "<group>"; };
-		C8413BCD25A437C200BE0566 /* ImageQualityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQualityViewController.swift; sourceTree = "<group>"; };
 		C8413BCE25A437C200BE0566 /* ImageQualityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageQualityViewController.xib; sourceTree = "<group>"; };
 		C8413BD225A4386F00BE0566 /* ImageQualityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQualityViewModel.swift; sourceTree = "<group>"; };
-		C8413BD625A438B400BE0566 /* ObjectDetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionViewController.swift; sourceTree = "<group>"; };
 		C8413BD725A438B400BE0566 /* ObjectDetectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ObjectDetectionViewController.xib; sourceTree = "<group>"; };
 		C8413BDB25A43B0500BE0566 /* AllResonse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllResonse.swift; sourceTree = "<group>"; };
 		C8413BF725A4842E00BE0566 /* ObjectDetectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionViewModel.swift; sourceTree = "<group>"; };
@@ -71,7 +66,6 @@
 		C868C8962599DFA90019D07A /* UtilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityManager.swift; sourceTree = "<group>"; };
 		C868C8992599F97A0019D07A /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		C879E32525B01D9800AB2380 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		C88C940D25A0993A002CAFC3 /* ClassificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationViewController.swift; sourceTree = "<group>"; };
 		C88C940E25A0993A002CAFC3 /* ClassificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassificationViewController.xib; sourceTree = "<group>"; };
 		C88C942A25A30B6A002CAFC3 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		C8C3A31925B6E3B500601657 /* CategoryViewModelItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModelItemType.swift; sourceTree = "<group>"; };
@@ -118,7 +112,6 @@
 		C8413BCC25A437A900BE0566 /* ImageQuality */ = {
 			isa = PBXGroup;
 			children = (
-				C8413BCD25A437C200BE0566 /* ImageQualityViewController.swift */,
 				C8413BCE25A437C200BE0566 /* ImageQualityViewController.xib */,
 				C8413BD225A4386F00BE0566 /* ImageQualityViewModel.swift */,
 				C8C3A32525B6ED5500601657 /* ImageQualityTableViewCell.swift */,
@@ -129,7 +122,6 @@
 		C8413BD525A4389A00BE0566 /* ObjectDetection */ = {
 			isa = PBXGroup;
 			children = (
-				C8413BD625A438B400BE0566 /* ObjectDetectionViewController.swift */,
 				C8413BD725A438B400BE0566 /* ObjectDetectionViewController.xib */,
 				C8413BF725A4842E00BE0566 /* ObjectDetectionViewModel.swift */,
 				C8C3A32B25B6ED8200601657 /* ObjectDetectionTableViewCell.swift */,
@@ -238,7 +230,6 @@
 		C8FC4B2B25A3286000EECCF0 /* Classification */ = {
 			isa = PBXGroup;
 			children = (
-				C88C940D25A0993A002CAFC3 /* ClassificationViewController.swift */,
 				C88C940E25A0993A002CAFC3 /* ClassificationViewController.xib */,
 				C8FC4B2525A3186B00EECCF0 /* ClassificationResponse.swift */,
 				C8FC4B2C25A32A9400EECCF0 /* ClassificationViewModel.swift */,
@@ -371,13 +362,11 @@
 				C88C942B25A30B6A002CAFC3 /* UIImage.swift in Sources */,
 				C8C3A31A25B6E3B500601657 /* CategoryViewModelItemType.swift in Sources */,
 				C8413BF825A4842E00BE0566 /* ObjectDetectionViewModel.swift in Sources */,
-				C8413BCF25A437C200BE0566 /* ImageQualityViewController.swift in Sources */,
 				C8FC4B2D25A32A9400EECCF0 /* ClassificationViewModel.swift in Sources */,
 				C8C3A31E25B6E4D200601657 /* CategoryViewModelItem.swift in Sources */,
 				C868C8652593298E0019D07A /* TabViewController.swift in Sources */,
 				C879E32625B01D9800AB2380 /* UIColor.swift in Sources */,
 				C8FC4B2925A31C5400EECCF0 /* DataCoader.swift in Sources */,
-				C88C940F25A0993A002CAFC3 /* ClassificationViewController.swift in Sources */,
 				C868C8612593298E0019D07A /* AppDelegate.swift in Sources */,
 				C8413BDC25A43B0500BE0566 /* AllResonse.swift in Sources */,
 				C8C3A32625B6ED5500601657 /* ImageQualityTableViewCell.swift in Sources */,
@@ -386,7 +375,6 @@
 				C8FC4B2625A3186B00EECCF0 /* ClassificationResponse.swift in Sources */,
 				C868C8972599DFA90019D07A /* UtilityManager.swift in Sources */,
 				C8413E1A25AC5A8500BE0566 /* RectangleView.swift in Sources */,
-				C8413BD825A438B400BE0566 /* ObjectDetectionViewController.swift in Sources */,
 				C868C88825935A5A0019D07A /* TabViewViewModel.swift in Sources */,
 				C868C89A2599F97A0019D07A /* Configuration.swift in Sources */,
 				C8413E1E25AC5E9E00BE0566 /* String.swift in Sources */,

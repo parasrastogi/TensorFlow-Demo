@@ -66,7 +66,7 @@ class ObjectDetectionTableViewCell: UITableViewCell {
     }
         @IBAction func objectProbSliderChanged(_ sender: UISlider) {
             let roundedVal = Double(round(100*sender.value)/100) // round 2 decimal places
-            sliderValueLabel.text = String(format: "%.2f%%", roundedVal)
+            sliderValueLabel.text = String(format: "%.2f%", roundedVal)
             if let sliderChangedHandler = sliderChangedHandler{
                 sliderChangedHandler(Float(roundedVal))
                 changeTabButtonColorOnSlide(Float(roundedVal))

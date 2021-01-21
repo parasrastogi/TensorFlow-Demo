@@ -20,9 +20,6 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     @IBOutlet weak var msgPlaceHolderLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
-    weak var classificationVC: ClassificationViewController!
-    weak var imageQualityVC: ImageQualityViewController!
-    weak var objectDetectionVC: ObjectDetectionViewController!
     let viewModel = TabViewViewModel()
     var rectViewArr : [RectangleView] = []
     var result : Result?
@@ -67,9 +64,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     }
     
     func hideAllViews(){
-        classificationVC.view.isHidden = true
-        imageQualityVC.view.isHidden = true
-        objectDetectionVC.view.isHidden = true
+        tableView.isHidden = true
     }
     
 //    func addChildViewControllers(){
@@ -177,26 +172,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     }
     
     func showCurrentView(tab: Tabs){
-        switch tab{
-        case .classification:
-            debugPrint("classification")
-            self.imageQualityVC.view.isHidden = true
-            self.classificationVC.view.isHidden = !isDataLoaded
-            self.objectDetectionVC.view.isHidden = true
-            hideRectViews(isHidden: true, rectViewArr: rectViewArr)
-        case .imageQuality:
-            self.imageQualityVC.view.isHidden = !isDataLoaded
-            self.classificationVC.view.isHidden = true
-            self.objectDetectionVC.view.isHidden = true
-            hideRectViews(isHidden: true, rectViewArr: rectViewArr)
-            debugPrint("obj quality")
-        case .objectDetection:
-            self.imageQualityVC.view.isHidden = true
-            self.classificationVC.view.isHidden = true
-            self.objectDetectionVC.view.isHidden = !isDataLoaded
-            hideRectViews(isHidden: false, rectViewArr: rectViewArr)
-            debugPrint("obj det")
-        }
+        tableView.isHidden = false
     }
     
     func hideRectViews(isHidden: Bool, rectViewArr: [RectangleView]){
@@ -236,7 +212,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         rectViewArr.removeAll()
         msgPlaceHolderLabel.isHidden = true
         overlayView.subviews.map({ $0.removeFromSuperview() })
-      //  hideAllViews()
+        hideAllViews()
         uploadImage(image: image)
     }
     
@@ -257,7 +233,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
             viewModel.dataLoaded = true
             viewModel.tabSelected()
             _ = allResponse.result?.objectDetection.objects.map { drawRectangle(xmin: $0.xmin, xmax: $0.xmax, ymin: $0.ymin, ymax: $0.ymax , objTitle: $0.mainLabel, prob: CGFloat($0.prob))  }
-          //  showCurrentView(tab: viewModel.selectedTab.value)
+            showCurrentView(tab: viewModel.selectedTab.value)
         }else{
             showErrorMsg(allResponse)
         }
@@ -313,33 +289,6 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
         self.overlayView.addSubview(rectangleView)
     }
     
-    
-    
-    fileprivate func onSelection(indexPath: IndexPath) {
-        viewModel.tabSelectedIndexPath = indexPath
-        //tabsCollectionView?.reloadData()
-        
-        //        switch tabButtons[viewModel.tabSelectedIndexPath.row] {
-        //        case .overview:
-        //            overViewTextArea.attributedText = overViewTextArea.attributtedString(text: viewModel.overview, more: false)
-        //            overviewStackViewHeight.constant = 60
-        //            logEvent(eventCode: .nhnMyComOvw)
-        //
-        //        case .amenities:
-        //            overViewTextArea.attributedText = attributtedString(text: viewModel.amenityTextArea)
-        //            logEvent(eventCode: .nhnAmn)
-        //            overviewStackViewHeight.constant = 0
-        //
-        //        case .school:
-        //            overViewTextArea.attributedText = attributtedString(text: viewModel.schoolTextArea)
-        //            overviewStackViewHeight.constant = 0
-        //
-        //        case .utilities:
-        //            overViewTextArea.attributedText = attributtedString(text: viewModel.utilityTextArea)
-        //            overviewStackViewHeight.constant = 0
-        //        }
-        //        adjustAddressView()
-    }
     
 }
 
