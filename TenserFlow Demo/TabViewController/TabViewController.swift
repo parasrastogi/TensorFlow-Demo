@@ -13,13 +13,19 @@ import ReactiveKit
 class TabViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     @IBOutlet weak var tabBarCollectionView: UICollectionView!
     @IBOutlet weak var takePhotoButton: UIButton!
-    @IBOutlet weak var replacableView: UIView!
     @IBOutlet weak var pickedImage: UIImageView!
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var msgPlaceHolderLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageWidthConstraints: NSLayoutConstraint!
+    @IBOutlet weak var imageTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableViewTopConstraintFromSuperView: NSLayoutConstraint!
+    @IBOutlet weak var tableViewTopConstraintFromImage: NSLayoutConstraint!
+    
     let viewModel = TabViewViewModel()
     var rectViewArr : [RectangleView] = []
     var result : Result?
@@ -30,6 +36,7 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
     var objectDetectionViewModel = ObjectDetectionViewModel()
     var imageQualityViewModel = ImageQualityViewModel()
     var changeSliderValueOnTagTapHandler : ((Float) -> Void)?
+    var currentDeviceType: UIUserInterfaceIdiom?
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
@@ -38,8 +45,55 @@ class TabViewController: UIViewController, UIImagePickerControllerDelegate & UIN
             tableView.layer.removeAllAnimations()
             self?.tableHeightConstraint.constant = tableView.contentSize.height
         })
-       
     }
+    
+    
+    fileprivate func updateConstraints() {
+        switch UIDevice.current.userInterfaceIdiom{
+        case .pad:
+            
+            if UIApplication.shared.statusBarOrientation.isLandscape {
+                print("landscape")
+            } else {
+                print("portrait")
+            }
+           
+            if view.bounds.width < view.bounds.height{
+                NSLayoutConstraint.deactivate([tableViewWidthConstraint,imageWidthConstraints,tableViewTopConstraintFromSuperView])
+                
+                NSLayoutConstraint.activate([tableViewLeadingConstraint,imageTrailingConstraint,tableViewTopConstraintFromImage])
+            }else{
+                NSLayoutConstraint.deactivate([tableViewLeadingConstraint,imageTrailingConstraint,tableViewTopConstraintFromImage])
+                NSLayoutConstraint.activate([tableViewWidthConstraint,imageWidthConstraints,tableViewTopConstraintFromSuperView])
+            }
+
+            print("Constant -- \(tableViewTopConstraintFromSuperView.constant)")
+            view.layoutIfNeeded()
+            if let image = pickedImage.image{
+                imageHeightConstraint.constant = pickedImage.bounds.width * (image.size.height / image.size.width)
+            print("pickedimage boud \(pickedImage.bounds.width)")
+            }
+
+        default:
+            currentDeviceType = .unspecified
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateConstraints()
+  
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        updateConstraints()
+        if UIDevice.current.orientation.isLandscape {
+            print("landscape")
+        } else {
+            print("portrait")
+        }
+    }
+
 
     func showHideViewOnSlide(_ decimalVal: Float){
         for rect in rectViewArr{

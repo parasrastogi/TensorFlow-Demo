@@ -37,7 +37,7 @@
             <Locations>
                <Location
                   uuid = "B493BBB5-DB65-4CDD-90A9-51AE8DB952D9 - 9b45f13c5681ea2c"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "TenserFlow_Demo.TabViewController.tabBarCollectionView.getter : Swift.Optional&lt;__C.UICollectionView&gt;"
@@ -52,7 +52,7 @@
                </Location>
                <Location
                   uuid = "B493BBB5-DB65-4CDD-90A9-51AE8DB952D9 - d49a3f3a80ff6d10"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "TenserFlow_Demo.TabViewController.tabBarCollectionView.setter : Swift.Optional&lt;__C.UICollectionView&gt;"
@@ -67,7 +67,7 @@
                </Location>
                <Location
                   uuid = "B493BBB5-DB65-4CDD-90A9-51AE8DB952D9 - 798b4533154e25a7"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "TenserFlow_Demo.TabViewController.tabBarCollectionView.modify : Swift.Optional&lt;__C.UICollectionView&gt;"
@@ -82,7 +82,7 @@
                </Location>
                <Location
                   uuid = "B493BBB5-DB65-4CDD-90A9-51AE8DB952D9 - 95bff509d10c5a9"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "TenserFlow_Demo.TabViewController.tabBarCollectionView.modify : Swift.Optional&lt;__C.UICollectionView&gt; with unmangled suffix &quot;.resume.0&quot;"
@@ -97,7 +97,7 @@
                </Location>
                <Location
                   uuid = "B493BBB5-DB65-4CDD-90A9-51AE8DB952D9 - 5df0475fd66dd91d"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "TenserFlow_Demo.TabViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; TenserFlow_Demo.TabViewController"
@@ -112,7 +112,7 @@
                </Location>
                <Location
                   uuid = "B493BBB5-DB65-4CDD-90A9-51AE8DB952D9 - 94c295813bc628df"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "TenserFlow_Demo.TabViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;TenserFlow_Demo.TabViewController&gt;"
@@ -490,8 +490,8 @@
             filePath = "TenserFlow Demo/TabViewController/TabViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "showHideViewOnSlide(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -516,7 +516,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F4E6BE79-2BDD-4295-8D51-E9A7CBF36207"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TenserFlow Demo/Classification/ClassificationTableViewCell.swift"
@@ -548,14 +548,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "46C6406A-7FC1-4246-8355-433EB181EDF4"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TenserFlow Demo/TabViewController/TabViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "bindViewModel()"
             landmarkType = "7">
          </BreakpointContent>
@@ -564,7 +564,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "387FBC74-A7C5-43BE-B3A4-DCF7ADE2EDFB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TenserFlow Demo/ObjectDetection/ObjectDetectionViewController.swift"
@@ -573,6 +573,70 @@
             startingLineNumber = "26"
             endingLineNumber = "26"
             landmarkName = "objectProbSliderChanged(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C18B07F8-F400-48B2-9724-F422BEE94693"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TenserFlow Demo/TabViewController/TabViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "viewWillTransition(to:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8737D55D-58BF-45C9-B820-172222816AB3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TenserFlow Demo/TabViewController/TabViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "viewDidLayoutSubviews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6B24778-313E-4D20-9AD0-D1F447C39F13"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TenserFlow Demo/TabViewController/TabViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "updateConstraints()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CEED8077-CD8E-403D-9639-98F5CF296DC0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TenserFlow Demo/TabViewController/TabViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "updateConstraints()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
